@@ -1,0 +1,40 @@
+{% extends 'User/base.html' %}
+ {% block container %}
+
+     {% if error %}
+        <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+     <form method="post" action="{% url "SignUp" %}" autocomplete="off">
+     {% csrf_token %}
+
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" name="inputUserN" id="inputUserN" placeholder="Ingrese su usuario" required>
+      </div>
+
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" required>
+      </div>
+
+     <div class="form-group mx-sm-3 mb-2">
+        <input type="password" class="form-control" name="inputConfirm" id="inputConfirm" placeholder="Ingrese contraseña" required>
+      </div>
+
+     <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" name="inputFName" id="inputFName" placeholder="Ingrese su nombre" required>
+     </div>
+
+     <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" name="inputLName" id="inputLName" placeholder="Ingrese su segundo nombre" required>
+     </div>
+
+     <div class="form-group mx-sm-3 mb-2">
+        <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Ingrese su correo" required>
+     </div>
+
+     <div class="col-8">
+        <button type="submit" class="btn btn-primary mb-2">Confirm </button>
+     </div>
+
+     </form>
+ {% endblock%}

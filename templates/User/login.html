@@ -1,0 +1,30 @@
+{% extends 'User/base.html' %}
+
+{% block head_content %}
+    <title>Project Platzi </title>
+{% endblock %}
+
+{% block container %}
+    <!-- error es el diccionario que esta en el view de users -->
+    {% if error %}
+        <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" action="{% url "Login" %}">
+           <!-- Token y es para que no se le pueda hacer submit desde otro formulario
+            Solo si se hizo get antes obtendras el token -->
+        {% csrf_token %}
+    <div class="form-group mx-sm-3 mb-2">
+
+        <input type="text" class="form-control" name="inputUser" id="inputUser" placeholder="Ingrese su usuario">
+    </div>
+      <div class="form-group mx-sm-3 mb-2">
+
+        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
+      </div>
+        <div class="col-8">
+      <button type="submit" class="btn btn-primary mb-2">Confirm </button>
+        </div>
+    </form>
+
+{% endblock %}
